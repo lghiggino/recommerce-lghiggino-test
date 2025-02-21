@@ -1,0 +1,71 @@
+@layer theme {
+  .theme-dark {
+    // --------------------------------------------------------
+    // Colors (Branding Core)
+    // --------------------------------------------------------
+
+    // PALETTE (Dark-leaning values)
+    // You can fine-tune these shades to achieve the level of contrast you prefer.
+    --fs-color-main-0: #271212;
+    --fs-color-main-1: #3a1c1c;
+    --fs-color-main-2: #502e2e;
+    --fs-color-main-3: #775050;
+    --fs-color-main-4: #d3baba;
+
+    // ACCENTS (reusing brand purples, shifted slightly for better contrast if needed)
+    --fs-color-accent-0: #ebdcff;
+    --fs-color-accent-1: #8d50fd;
+    --fs-color-accent-2: #732fe2;
+    --fs-color-accent-3: #5900c8;
+    --fs-color-accent-4: #4700a0;
+
+    // HIERARCHY
+    // Adjusting backgrounds to be dark by default
+    --fs-color-primary-bkg: var(--fs-color-main-0);
+    --fs-color-primary-bkg-active: var(--fs-color-main-2);
+    --fs-color-primary-bkg-light: var(--fs-color-main-1);
+    --fs-color-primary-bkg-light-active: var(--fs-color-main-3);
+
+    // SITUATIONS (darker backgrounds for success/warning)
+    --fs-color-success-bkg: #2b3c33; // Dark greenish tone
+    --fs-color-warning-bkg: #4b3f2a; // Dark brownish tone
+
+    // COMPONENTS & STATES
+    // Lighter text to stand out on dark backgrounds
+    --fs-color-text-display: #f0f0f0;
+
+    --fs-color-action-bkg: var(--fs-color-accent-3);
+    --fs-color-action-bkg-hover: var(--fs-color-accent-2);
+    --fs-color-action-bkg-active: var(--fs-color-accent-1);
+
+    // --------------------------------------------------------
+    // Typography (Branding Core)
+    // --------------------------------------------------------
+    --fs-text-face-body: 'Lato', -apple-system, system-ui, BlinkMacSystemFont, sans-serif;
+
+    // --------------------------------------------------------
+    // Refinements
+    // --------------------------------------------------------
+    --fs-border-radius: 0.25rem;
+
+    // Shadows in dark themes might need less opacity or lighter tones
+    --fs-shadow: none;
+    --fs-shadow-darker: 0 0 10px rgb(255 255 255 / 10%);
+    --fs-shadow-hover: 0 1px 4px rgb(255 255 255 / 5%), 0 6px 8px rgb(255 255 255 / 5%);
+
+    // --------------------------------------------------------
+    // FS UI Components
+    // --------------------------------------------------------
+    // Add here the customizations for FastStore UI components.
+    --fs-logo-width: 8rem;
+
+    [data-fs-product-card] {
+      --fs-product-card-border-color: transparent;
+      --fs-product-card-border-color-hover: var(--fs-color-main-2);
+
+      &[data-fs-product-card-bordered='true'] {
+        --fs-product-card-border-color: var(--fs-color-main-2);
+      }
+    }
+  }
+}
