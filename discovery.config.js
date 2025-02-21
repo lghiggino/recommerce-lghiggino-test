@@ -1,6 +1,6 @@
 module.exports = {
   seo: {
-    title: 'FastStore Starter',
+    title: 'FastStore Starter - Recommerce lghiggino',
     description: 'Fast Demo Store',
     titleTemplate: '%s | FastStore',
     author: 'FastStore',
