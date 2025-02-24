@@ -126,6 +126,11 @@
   cursor: pointer;
   display: none;
   padding: 10px;
+  color: #000;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 .mobileControls {
@@ -134,18 +139,32 @@
   align-items: center;
 }
 
+.overlay {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 60px);
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 90;
+}
+
+/* Desktop Cart - hidden on mobile */
+.desktopCartItem {
+  display: flex;
+  align-items: center;
+}
+
 /* Responsive styles */
 @media (max-width: 768px) {
   .navbar {
-    width: 100vw;
-    overflow-x: hidden;
+    width: 100%;
   }
 
   .container {
     width: 100%;
     padding: 0 10px;
     justify-content: space-between;
-    position: relative;
   }
 
   .logoSection {
@@ -177,16 +196,16 @@
     width: 100%;
     background-color: #ffff00;
     flex-direction: column;
-    height: 0;
+    max-height: 0;
     overflow: hidden;
-    transition: height 0.3s ease;
+    transition: max-height 0.3s ease;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
     padding: 0;
     z-index: 100;
   }
 
   .mobileMenuOpen {
-    height: auto;
+    max-height: 300px;
     padding: 15px 0;
   }
 
@@ -212,5 +231,9 @@
     width: 100%;
     display: block;
     padding: 5px 0;
+  }
+
+  .desktopCartItem {
+    display: none;
   }
 }

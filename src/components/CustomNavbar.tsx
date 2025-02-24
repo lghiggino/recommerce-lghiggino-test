@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import styles from './CustomNavbar.module.scss'
 
 // Simple SVG icons
@@ -47,29 +47,24 @@ const MenuIcon = () => (
   </svg>
 )
 
+const CloseIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+)
+
 const CustomNavbar = () => {
   const [cartItems, setCartItems] = useState(2)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0)
-
-  // Handle window resize
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth)
-      if (window.innerWidth > 768) {
-        setMobileMenuOpen(false)
-      }
-    }
-
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen)
   }
 
-  const isMobile = windowWidth <= 768
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false)
+  }
 
   return (
     <header className={styles.navbar}>
@@ -86,55 +81,62 @@ const CustomNavbar = () => {
           <span className={styles.brandText}>COMMERCE</span>
         </div>
 
-        {isMobile && (
-          <div className={styles.mobileControls}>
-            <a href="/cart" className={styles.mobileCartLink}>
-              <span className={styles.cartIcon}>
-                <CartIcon />
-              </span>
-              {cartItems > 0 && <span className={styles.cartBadge}>{cartItems}</span>}
-            </a>
-            <button className={styles.menuButton} onClick={toggleMobileMenu} aria-label="Toggle menu">
-              <MenuIcon />
-            </button>
-          </div>
-        )}
+        <div className={styles.mobileControls}>
+          <a href="/cart" className={styles.mobileCartLink}>
+            <span className={styles.cartIcon}>
+              <CartIcon />
+            </span>
+            {cartItems > 0 && <span className={styles.cartBadge}>{cartItems}</span>}
+          </a>
+          <button
+            className={styles.menuButton}
+            onClick={toggleMobileMenu}
+            aria-label="Toggle menu"
+            aria-expanded={mobileMenuOpen}
+          >
+            {mobileMenuOpen ? <CloseIcon /> : <MenuIcon />}
+          </button>
+        </div>
 
-        <nav className={`${styles.navigation} ${mobileMenuOpen && isMobile ? styles.mobileMenuOpen : ''}`}>
+        <nav
+          className={`${styles.navigation} ${mobileMenuOpen ? styles.mobileMenuOpen : ''}`}
+          aria-hidden={!mobileMenuOpen}
+        >
           <ul className={styles.navLinks}>
             <li className={styles.navItem}>
-              <a href="/" className={styles.navLink}>
+              <a href="/" className={styles.navLink} onClick={closeMobileMenu}>
                 HOME
               </a>
             </li>
             <li className={styles.navItem}>
-              <a href="/purpose" className={styles.navLink}>
+              <a href="/purpose" className={styles.navLink} onClick={closeMobileMenu}>
                 OUR PURPOSE
               </a>
             </li>
             <li className={styles.navItem}>
-              <a href="/suppliers" className={styles.navLink}>
+              <a href="/suppliers" className={styles.navLink} onClick={closeMobileMenu}>
                 OUR SUPPLIERS
               </a>
             </li>
             <li className={styles.navItem}>
-              <a href="/media" className={styles.navLink}>
+              <a href="/media" className={styles.navLink} onClick={closeMobileMenu}>
                 MEDIA
               </a>
             </li>
-            {!isMobile && (
-              <li className={styles.navItem}>
-                <a href="/cart" className={styles.cartLink}>
-                  <span className={styles.cartIcon}>
-                    <CartIcon />
-                  </span>
-                  {cartItems > 0 && <span className={styles.cartBadge}>{cartItems}</span>}
-                </a>
-              </li>
-            )}
+            <li className={styles.desktopCartItem}>
+              <a href="/cart" className={styles.cartLink}>
+                <span className={styles.cartIcon}>
+                  <CartIcon />
+                </span>
+                {cartItems > 0 && <span className={styles.cartBadge}>{cartItems}</span>}
+              </a>
+            </li>
           </ul>
         </nav>
       </div>
+
+      {/* Overlay for mobile menu */}
+      {mobileMenuOpen && <div className={styles.overlay} onClick={closeMobileMenu} />}
     </header>
   )
 }
