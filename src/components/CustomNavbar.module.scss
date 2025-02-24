@@ -1,12 +1,20 @@
 .navbar {
-  display: flex;
-  align-items: center;
-  height: 60px;
   width: 100%;
   background-color: #ffff00;
   color: #000;
   font-family: Arial, sans-serif;
+  position: relative;
   box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
 }
 
 .logoSection {
@@ -16,6 +24,7 @@
   height: 100%;
   width: 100px;
   border-right: 1px solid #000;
+  flex-shrink: 0;
 }
 
 .triangleLogo {
@@ -32,6 +41,7 @@
   font-size: 1.2rem;
   font-weight: bold;
   letter-spacing: 1px;
+  flex-shrink: 0;
 }
 
 .brandText {
@@ -86,6 +96,11 @@
   text-decoration: none;
 }
 
+.mobileCartLink {
+  composes: cartLink;
+  margin-right: 15px;
+}
+
 .cartIcon {
   position: relative;
 }
@@ -103,4 +118,99 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.menuButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: none;
+  padding: 10px;
+}
+
+.mobileControls {
+  display: none;
+  margin-left: auto;
+  align-items: center;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .navbar {
+    width: 100vw;
+    overflow-x: hidden;
+  }
+
+  .container {
+    width: 100%;
+    padding: 0 10px;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .logoSection {
+    width: 50px;
+    border-right: none;
+  }
+
+  .brandSection {
+    padding: 0 10px;
+    font-size: 1rem;
+  }
+
+  .separator {
+    margin: 0 5px;
+  }
+
+  .menuButton {
+    display: block;
+  }
+
+  .mobileControls {
+    display: flex;
+  }
+
+  .navigation {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #ffff00;
+    flex-direction: column;
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    z-index: 100;
+  }
+
+  .mobileMenuOpen {
+    height: auto;
+    padding: 15px 0;
+  }
+
+  .navLinks {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    align-items: flex-start;
+  }
+
+  .navItem {
+    width: 100%;
+    height: auto;
+    padding: 10px 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .navLink {
+    width: 100%;
+    display: block;
+    padding: 5px 0;
+  }
 }

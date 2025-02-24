@@ -1,6 +1,7 @@
+import { useEffect, useState } from 'react'
 import styles from './CustomNavbar.module.scss'
 
-// You would need to create these icon components or import from a basic icon library
+// Simple SVG icons
 const CartIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
@@ -38,51 +39,104 @@ const TriangleIcon = () => (
   </svg>
 )
 
-export default function CustomNavbar() {
+const MenuIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M3 12H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M3 6H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M3 18H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+)
+
+const CustomNavbar = () => {
+  const [cartItems, setCartItems] = useState(2)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0)
+
+  // Handle window resize
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth)
+      if (window.innerWidth > 768) {
+        setMobileMenuOpen(false)
+      }
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen)
+  }
+
+  const isMobile = windowWidth <= 768
+
   return (
     <header className={styles.navbar}>
-      <div className={styles.logoSection}>
-        <div className={styles.triangleLogo}>
-          <TriangleIcon />
+      <div className={styles.container}>
+        <div className={styles.logoSection}>
+          <div className={styles.triangleLogo}>
+            <TriangleIcon />
+          </div>
         </div>
-      </div>
-      <div className={styles.brandSection}>
-        <span className={styles.brandText}>RE</span>
-        <span className={styles.separator}>-</span>
-        <span className={styles.brandText}>COMMERCE</span>
-      </div>
-      <nav className={styles.navigation}>
-        <ul className={styles.navLinks}>
-          <li className={styles.navItem}>
-            <a href="/" className={styles.navLink}>
-              HOME
-            </a>
-          </li>
-          <li className={styles.navItem}>
-            <a href="/purpose" className={styles.navLink}>
-              OUR PURPOSE
-            </a>
-          </li>
-          <li className={styles.navItem}>
-            <a href="/suppliers" className={styles.navLink}>
-              OUR SUPPLIERS
-            </a>
-          </li>
-          <li className={styles.navItem}>
-            <a href="/media" className={styles.navLink}>
-              MEDIA
-            </a>
-          </li>
-          <li className={styles.navItem}>
-            <a href="/cart" className={styles.cartLink}>
+
+        <div className={styles.brandSection}>
+          <span className={styles.brandText}>RE</span>
+          <span className={styles.separator}>-</span>
+          <span className={styles.brandText}>COMMERCE</span>
+        </div>
+
+        {isMobile && (
+          <div className={styles.mobileControls}>
+            <a href="/cart" className={styles.mobileCartLink}>
               <span className={styles.cartIcon}>
                 <CartIcon />
               </span>
-              {/* {cartItems > 0 && <span className={styles.cartBadge}>{cartItems}</span>} */}
+              {cartItems > 0 && <span className={styles.cartBadge}>{cartItems}</span>}
             </a>
-          </li>
-        </ul>
-      </nav>
+            <button className={styles.menuButton} onClick={toggleMobileMenu} aria-label="Toggle menu">
+              <MenuIcon />
+            </button>
+          </div>
+        )}
+
+        <nav className={`${styles.navigation} ${mobileMenuOpen && isMobile ? styles.mobileMenuOpen : ''}`}>
+          <ul className={styles.navLinks}>
+            <li className={styles.navItem}>
+              <a href="/" className={styles.navLink}>
+                HOME
+              </a>
+            </li>
+            <li className={styles.navItem}>
+              <a href="/purpose" className={styles.navLink}>
+                OUR PURPOSE
+              </a>
+            </li>
+            <li className={styles.navItem}>
+              <a href="/suppliers" className={styles.navLink}>
+                OUR SUPPLIERS
+              </a>
+            </li>
+            <li className={styles.navItem}>
+              <a href="/media" className={styles.navLink}>
+                MEDIA
+              </a>
+            </li>
+            {!isMobile && (
+              <li className={styles.navItem}>
+                <a href="/cart" className={styles.cartLink}>
+                  <span className={styles.cartIcon}>
+                    <CartIcon />
+                  </span>
+                  {cartItems > 0 && <span className={styles.cartBadge}>{cartItems}</span>}
+                </a>
+              </li>
+            )}
+          </ul>
+        </nav>
+      </div>
     </header>
   )
 }
+
+export default CustomNavbar
