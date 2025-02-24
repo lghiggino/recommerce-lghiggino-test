@@ -1,0 +1,202 @@
+[
+  {
+    "name": "ImageGrid",
+    "schema": {
+      "title": "Image Grid",
+      "description": "List of images with titles and links",
+      "type": "object",
+      "required": ["title", "images"],
+      "properties": {
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "images": {
+          "title": "Images",
+          "type": "array",
+          "items": {
+            "title": "Image",
+            "type": "object",
+            "required": ["image", "title", "link"],
+            "properties": {
+              "image": {
+                "title": "Image",
+                "type": "string",
+                "widget": {
+                  "ui:widget": "media-gallery"
+                }
+              },
+              "title": {
+                "title": "Title",
+                "type": "string"
+              },
+              "link": {
+                "title": "Link",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "name": "Header",
+    "schema": {
+      "title": "Header",
+      "description": "Header with title, text and image",
+      "type": "object",
+      "required": ["title", "text", "image"],
+      "properties": {
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "image": {
+          "title": "Image",
+          "type": "string",
+          "widget": {
+            "ui:widget": "media-gallery"
+          }
+        }
+      }
+    }
+  },
+  {
+    "name": "NavbarWithIcons",
+    "schema": {
+      "title": "Navbar with Icons",
+      "description": "Navbar with icons to be used as quick links",
+      "type": "object",
+      "required": ["links"],
+      "properties": {
+        "links": {
+          "title": "Links",
+          "type": "array",
+          "items": {
+            "title": "Item",
+            "type": "object",
+            "required": ["label", "icon", "url"],
+            "properties": {
+              "label": {
+                "title": "Label",
+                "type": "string"
+              },
+              "icon": {
+                "title": "Icon",
+                "type": "string",
+                "widget": {
+                  "ui:widget": "media-gallery"
+                }
+              },
+              "url": {
+                "title": "URL",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "name": "Carousel",
+    "schema": {
+      "title": "Carousel",
+      "description": "Carousel with images",
+      "type": "object",
+      "required": ["images"],
+      "properties": {
+        "images": {
+          "title": "Images",
+          "type": "array",
+          "items": {
+            "title": "Image",
+            "type": "object",
+            "required": ["image", "link"],
+            "properties": {
+              "image": {
+                "title": "Image",
+                "type": "string",
+                "widget": {
+                  "ui:widget": "media-gallery"
+                }
+              },
+              "imageMobile": {
+                "title": "Image Mobile",
+                "description": "Image to be displayed on mobile devices",
+                "type": "string",
+                "widget": {
+                  "ui:widget": "media-gallery"
+                }
+              },
+              "alt": {
+                "title": "Alt",
+                "type": "string"
+              },
+              "link": {
+                "title": "Link",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "interval": {
+          "title": "Interval",
+          "type": "number",
+          "default": 5000
+        },
+        "timeout": {
+          "title": "Timeout",
+          "type": "number",
+          "default": 5000
+        }
+      }
+    }
+  },
+  {
+    "name": "RichText",
+    "schema": {
+      "title": "Rich Text",
+      "description": "Rich text editor",
+      "type": "object",
+      "required": ["content"],
+      "properties": {
+        "content": {
+          "title": "Content",
+          "type": "string",
+          "widget": {
+            "ui:widget": "draftjs-rich-text"
+          }
+        }
+      }
+    }
+  },
+  {
+    "name": "ProductGrid",
+    "schema": {
+      "title": "Grid de Categorias",
+      "description": "Grid dinamico de categorias de produtos",
+      "properties": {
+        "title": {
+          "title": "Título",
+          "type": "string",
+          "shelf": {
+            "title": "Categoria",
+            "type": "object",
+            "properties": {
+              "title": {
+                "title": "Nome",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+]

@@ -1,14 +1,14 @@
 module.exports = {
   seo: {
-    title: 'FastStore Starter - Recommerce lghiggino',
-    description: 'Fast Demo Store',
+    title: 'Recommerce',
+    description: 'Recommerce - Atacama 2025',
     titleTemplate: '%s | FastStore',
-    author: 'FastStore',
+    author: 'Calindra+Ollie',
   },
   theme: 'dark-theme',
   platform: 'vtex',
   api: {
-    storeId: 'storeframework',
+    storeId: 'eitripartnerbr',
     workspace: 'master',
     environment: 'vtexcommercestable',
     hideUnavailableItems: false,

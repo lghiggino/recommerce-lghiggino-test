@@ -1,0 +1,114 @@
+.CustomProductPrice {
+    [data-casita-in-cash-label] {
+        margin-top: 4px;
+        font-size: var(--fs-text-size-1);
+    }
+
+    [data-casita-in-installments-label] {
+        margin-top: 4px;
+        font-size: var(--fs-text-size-0);
+    }
+
+    [data-casita-in-cash-button] {
+        margin-top: 12px;
+        font-size: 12px;
+        font-weight: 600;
+        text-align: unset;
+        padding: unset;
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        column-gap: 4px;
+        color: var(--fs-color-main-2);
+        cursor: pointer;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.PaymentMethodsDialog {
+    padding: 8px;
+
+    [data-fs-modal-header-title] {
+        text-align: center;
+    }
+
+    [data-casita-payment-methods-selector] {
+        display: block;
+
+        @media (min-width: 768px) {
+            display: none;
+        }
+
+        select {
+            width: 100%;
+            border-radius: 4px;
+            font-size: 16px;
+            padding: 8px;
+            appearance: none;
+            background: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0Ljk1IDEwIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2ZmZjt9LmNscy0ye2ZpbGw6IzQ0NDt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPmFycm93czwvdGl0bGU+PHJlY3QgY2xhc3M9ImNscy0xIiB3aWR0aD0iNC45NSIgaGVpZ2h0PSIxMCIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMiIgcG9pbnRzPSIxLjQxIDQuNjcgMi40OCAzLjE4IDMuNTQgNC42NyAxLjQxIDQuNjciLz48cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iMy41NCA1LjMzIDIuNDggNi44MiAxLjQxIDUuMzMgMy41NCA1LjMzIi8+PC9zdmc+) no-repeat;
+            background-position: right;
+        }
+    }
+
+    [data-casita-payment-methods-tabs] {
+        display: none;
+
+        @media (min-width: 768px) {
+            display: block;
+        }
+
+        nav {
+            width: 100%;
+            isolation: isolate;
+            display: flex;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+            column-gap: 2px;
+        }
+
+        [data-casita-payment-method-tab] {
+            flex: 1;
+            border: 1px solid rgb(209 213 219);
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            column-gap: 4px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        [data-current] {
+            background-color: var(--fs-color-main-2);
+            color: #fff;
+            font-weight: 600;
+            border-color: var(--fs-color-main-2);
+        }
+    }
+
+    [data-casita-payment-methods-list] {
+        height: 200px;
+        overflow-y: scroll;
+        margin-top: 16px;
+        font-size: 14px;
+
+        li {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgb(209 213 219);
+
+            &:hover {
+                background-color: rgb(245 245 245);
+                font-weight: 600;
+            }
+
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+    }
+}

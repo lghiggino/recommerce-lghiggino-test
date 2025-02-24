@@ -1,0 +1,51 @@
+.RichText {
+  *+* {
+    margin-top: 1em;
+  }
+
+  max-width: 1280px;
+  margin: 2rem auto 0 auto;
+  padding: 0 1rem;
+
+  @media (min-width: 768px) {
+    padding: 0 3rem;
+  }
+
+  h1 {
+    font-size: var(--fs-text-size-title-page)
+  }
+
+  h2 {
+    font-size: var(--fs-text-size-title-section)
+  }
+
+  h3 {
+    font-size: var(--fs-text-size-title-subsection)
+  }
+
+  h4,
+  h5,
+  h6 {
+    font-size: var(--fs-text-size-body)
+  }
+
+  li {
+    margin-left: 1em;
+  }
+
+  li::marker {
+    color: var(--fs-color-main-2);
+  }
+
+  ul {
+    li {
+      list-style-type: disc;
+    }
+  }
+
+  ol {
+    li {
+      list-style-type: decimal;
+    }
+  }
+}

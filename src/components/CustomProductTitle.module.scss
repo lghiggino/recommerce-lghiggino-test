@@ -1,0 +1,11 @@
+.CustomProductTitle {
+    [data-casita-seller-info-wrapper] {
+        margin-top: 1rem;
+        font-size: var(--fs-text-size-1);
+        line-height: 1.7;
+    }
+
+    [data-casita-seller-info-name] {
+        font-weight: var(--fs-text-weight-bold);
+    }
+}
