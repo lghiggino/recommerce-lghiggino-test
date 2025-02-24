@@ -3,7 +3,7 @@ module.exports = {
     title: 'Recommerce',
     description: 'Recommerce - Atacama 2025',
     titleTemplate: '%s | FastStore',
-    author: 'Calindra+Ollie',
+    author: 'Calindra',
   },
   theme: 'dark-theme',
   platform: 'vtex',

@@ -1,0 +1,106 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  width: 100%;
+  background-color: #ffff00;
+  color: #000;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+.logoSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100px;
+  border-right: 1px solid #000;
+}
+
+.triangleLogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brandSection {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  height: 100%;
+  font-size: 1.2rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.brandText {
+  text-transform: uppercase;
+}
+
+.separator {
+  margin: 0 15px;
+}
+
+.navigation {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.navItem {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.navLink {
+  padding: 0 15px;
+  color: #000;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.cartLink {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 0 10px;
+  color: #000;
+  text-decoration: none;
+}
+
+.cartIcon {
+  position: relative;
+}
+
+.cartBadge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #000;
+  color: #fff;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
