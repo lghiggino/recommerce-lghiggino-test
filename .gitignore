@@ -38,3 +38,10 @@ yarn-error.log*
 /.faststore
 .vscode/
 lighthouserc.js
+
+#Claude
+CLAUDE.md
+
+#Cypress
+/cypress/screenshots/*
+/cypress/videos/*

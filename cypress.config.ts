@@ -11,7 +11,7 @@ export default defineConfig({
     supportFile: "cypress/support/index.js",
     specPattern: "cypress/integration/**/*.test.{js,jsx,ts,tsx}",
     setupNodeEvents(on, config) {
-      return require("cypress/plugins/index.js")(on, config);
+      return require("./cypress/plugins/index.js")(on, config);
     },
     baseUrl: "http://localhost:3000/",
     experimentalRunAllSpecs: true,
