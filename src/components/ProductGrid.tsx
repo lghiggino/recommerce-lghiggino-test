@@ -6,9 +6,6 @@ export default function ProductGrid() {
       <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio, soluta?</p>
       <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio, soluta?</p>
       <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio, soluta?</p>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio, soluta?</p>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio, soluta?</p>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio, soluta?</p>
     </div>
   )
 }
