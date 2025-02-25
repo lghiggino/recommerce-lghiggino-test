@@ -8,7 +8,7 @@ module.exports = {
   theme: 'dark-theme',
   platform: 'vtex',
   api: {
-    storeId: 'eitripartnerbr',
+    storeId: 'eitripartnerbr', //'eitripartnerbr',
     workspace: 'master',
     environment: 'vtexcommercestable',
     hideUnavailableItems: false,
@@ -72,6 +72,6 @@ module.exports = {
   },
   account: 'storeframework',
   vtexHeadlessCms: {
-    webhookUrls: ['https://eitripartnerbr.myvtex.com/cms-releases/webhook-releases'],
+    webhookUrls: ['https://eitripartnerbr.myvtex.com/cms-releases/webhook-releases'], //'https://recommeceatacama.myvtex.com/cms-releases/webhook-releases'
   },
 }
